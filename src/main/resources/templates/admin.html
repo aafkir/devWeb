@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<title>Administration</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<body>
+<h1>Page Administration</h1>
+<!--Le monument est  <span style="font-weight: bold;" th:utext="${monuments}"></span> .--> 
+ <!--Les touristes sont   <span style="font-weight: bold;" th:utext="${userTouriste}"></span> .-->  
+
+        <div class="d-flex flex-row">
+             <h1>Menu</h1>
+             <nav>
+                <ul class="nav">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/list">Consultation</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/rechercher">Rechercher</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/appLogout">Deconnexion</a>
+                    </li>
+                </ul>
+            </nav>
+         </div>
+
+
+<div class="d-flex p-2">
+
+<div class="text-white bg-dark p-2 rounded-left">
+<h1 id="titre2">Ajouter un nouveau Monument</h1>
+<form  action="/ajout" method="post">
+  <div class="col-sm-7">
+    <input type="text" name="geohash" class="form-control" placeholder="geohash" >
+  </div>
+  <div class="col-sm">
+    <input type="text" name="nom" class="form-control" placeholder="nom" >
+  </div>
+  <div class="col-sm">
+    <input type="text" name="proprietaire" class="form-control" placeholder="proprietaire" >
+  </div>
+   <div class="col-sm">
+    <input type="text" name="typeM" class="form-control" placeholder="typeM" >
+  </div>
+   <div class="col-sm">
+    <input type="text" name="longitude" class="form-control" placeholder="longitude" >
+  </div>
+   <div class="col-sm">
+    <input type="text"  name="latitude" class="form-control" placeholder="latitude" >
+  </div>
+     <div class="col-sm">
+    <input type="text"  name="codeInsee" class="form-control" placeholder="codeInsee" >
+  </div>
+<div class="col-12">
+    <button type="submit" class="btn btn-success color-99CC5B">Ajouter</button>
+  </div>
+</form>
+
+</div>
+
+<div class="bg-light border border-dark">
+<h1 id="titre6">Supprimer un Monument</h1>
+<form  action="/remove" method="post">
+<fieldset>
+<legend width="30px">Saisir geohash du monument a supprimer:</legend>
+<div class="form-group">
+<label for="geohash"> geohash </label>
+<input type="text" name="geohash" required class="form-control"><br>
+</fieldset>
+<fieldset>
+  <div class="col-12">
+    <button type="submit" class="btn btn-success color-99CC5B">Supprimer</button>
+  </div>
+</fieldset>
+</form>
+</div>
+
+
+<div class="text-white bg-dark p-2 rounded-left">
+<h1 id="titre6">Modifier nom d'un monument</h1>
+<form  action="/updateMonument" method="post">
+<fieldset>
+<legend width="30px">Saisir geohash à modifier:</legend>
+<label > geohash </label>
+<input type="text" name="geohash" required class="form-control"><br>
+<label > newNomMonument </label>
+<input type="text" name="nomModifier" required class="form-control"><br>
+</fieldset>
+<fieldset>
+  <div class="col-12">
+    <button type="submit" class="btn btn-success color-99CC5B">Modifier</button>
+  </div>
+</fieldset>
+</form>
+</div>
+
+<div class="bg-light border border-dark">
+<h1 id="titre6">Modifier Code Insee d'une école</h1>
+<form  action="/updateEcole" method="post">
+<fieldset>
+<legend width="30px">Saisir nom à modifier:</legend>
+<label > nomEcole </label>
+<input type="text" name="nomEcole" required class="form-control"><br>
+<label > newCodeInsee </label>
+<input type="text" name="newCodeInsee" required class="form-control"><br>
+</fieldset>
+<fieldset>
+  <div class="col-12">
+    <button type="submit" class="btn btn-success color-99CC5B">Modifier</button>
+  </div></fieldset>
+</form>
+</div>
+
+
+
+
+</div>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
